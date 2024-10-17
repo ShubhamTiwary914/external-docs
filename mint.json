@@ -4,7 +4,7 @@
       "light": "/logo/adnet.png",
       "dark": "/logo/adnet.png"
     },
-    "favicon": "/favicon.svg",
+    "favicon": "/logo/adnet.png",
     "colors": {
       "primary": "#078dee",
       "light": "#078dee",
@@ -64,6 +64,7 @@
       {
         "group": "Concepts",
         "pages": [
+          "buyers/concepts/adtypes",
           "buyers/concepts/admetrics",
           "buyers/concepts/usermetrics",
           "buyers/concepts/auction"
