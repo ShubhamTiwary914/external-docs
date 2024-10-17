@@ -1,0 +1,47 @@
+---
+title: "Post-Order Process"
+description: "Order Status, Delivery, and Rating"
+---
+
+# Post-Order Process in ONDC
+
+This document outlines the post-order process in the Open Network for Digital Commerce (ONDC) ecosystem, focusing on order status updates, delivery, and customer ratings.
+
+<Tabs>
+  <Tab title="1. Order Status and Delivery">
+    ![Status](/images/ondc/api/status.png)
+
+    <Steps>
+      <Step title="Status Updates">
+        - BAP (Retail) fetches status updates from Logistics BPPs.
+        - These updates are relayed back to the customer.
+      </Step>
+      <Step title="Continuous Monitoring">
+        - This process continues until delivery confirmation is received.
+      </Step>
+      <Step title="Delivery Confirmation">
+        - Upon successful delivery, the Logistics BPP sends a delivery confirmation.
+        - BAP updates the customer that the order has been delivered.
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="2. Rating and Feedback">
+    ![Rating](/images/ondc/api/rating.png)
+
+    <Steps>
+      <Step title="Rating Prompt">
+        - After delivery confirmation, customers are provided with an option to rate the delivery services.
+      </Step>
+      <Step title="Customer Provides Rating">
+        - Customer submits their rating for the delivery service.
+      </Step>
+      <Step title="Rating Transmission">
+        - BAP (Retail) takes the rating provided by the customer.
+      </Step>
+      <Step title="Rating Processing">
+        - The rating is then forwarded to the relevant BPPs (Logistics) for their services.
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>

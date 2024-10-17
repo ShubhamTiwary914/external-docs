@@ -1,0 +1,91 @@
+---
+title: 'Pre-Production'
+description: 'ONDC Pre-Production Environment'
+---
+
+The ONDC pre-production environment is an advanced testing environment that closely mirrors the production system. It provides more comprehensive access and functionality compared to the staging environment, allowing for thorough testing and validation before moving to production.
+
+## Features of Pre-Production Environment
+
+- More realistic data and scenarios
+- Access to a wider range of ONDC network participants (in Pre-Prod)
+- Closer representation of production performance and behavior
+
+## Accessing the Pre-Production Environment
+
+To gain access to the pre-production environment, you need to follow a specific process:
+
+![Environment Access Process](/images/ondc/env-access.png)
+
+Go through the [ONDC Portal](https://portal.ondc.org/)  -> Home -> Environment Access, and apply for access to the pre prod environment
+
+
+
+
+## Network Participant Environments
+
+The following image illustrates the various environments available to network participants:
+
+![Network Participant Environments](/images/ondc/np-envs.png)
+
+Then apply for access to the pre-production environment for required Network Participant
+
+
+<br />
+
+## Integration Steps
+
+Then go to [Start Integration](https://portal.ondc.org/integration) and choose "Comply" on the Network Participant needed, to get the following:
+
+![Integration Steps](/images/ondc/integration-steps.png)
+
+These compliances checlist have to be followed, before you can use the Pre-Production APIs
+
+
+An example of Integration step required (The Operational Readiness Checklist) is as follows:
+
+![Integration Steps](/images/ondc/integration-operational.png)
+
+
+Check list of implementation of the ONDC APIs have to be completed.
+
+[Pramaan by ONDC](https://ondc-automation-dev.thewitslab.com/) can be used for the testing APIs
+
+
+
+<br />
+
+## Using the Pre-Production APIs
+
+In the pre-production environment, you can:
+
+1. Conduct end-to-end testing of your application
+2. Perform load and performance testing
+3. Validate your implementation against real-world scenarios
+4. Interact with other ONDC participants in a near-production setting
+
+## API Endpoints
+
+The base URL for the pre-production environment APIs is:
+
+[Pre-production API base URL to be provided by ONDC]
+
+### Buyer APIs
+
+| API | Description | Documentation |
+|-----|-------------|---------------|
+| Search | Allows buyers to search for products or services in the ONDC network | [Search](/ondc/retailv1.2/buyer/search) |
+| Select | Enables buyers to select items from a provider's catalog | [Select](/ondc/retailv1.2/buyer/select) |
+| Init | Initializes the order and requests payment details | [Init](/ondc/retailv1.2/buyer/init) |
+| Confirm | Confirms the order after successful payment | [Confirm](/ondc/retailv1.2/buyer/confirm) |
+
+### Seller APIs
+
+| API | Description | Documentation |
+|-----|-------------|---------------|
+| On Search | Responds to a search request from a BAP with catalog items | [On Search](/ondc/retailv1.2/seller/on_search) |
+| On Select | Responds to a select request from a BAP with selected item details | [On Select](/ondc/retailv1.2/seller/on_select) |
+| On Init | Responds to an init request from a BAP with initialized order details | [On Init](/ondc/retailv1.2/seller/on_init) |
+| On Confirm | Responds to a confirm request from a BAP with confirmed order details | [On Confirm](/ondc/retailv1.2/seller/on_confirm) |
+
+Remember to thoroughly test your application in the pre-production environment before requesting access to the production system. This ensures a smooth transition and helps identify any potential issues before they impact real users.

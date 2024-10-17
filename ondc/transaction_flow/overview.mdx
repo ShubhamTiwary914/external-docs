@@ -1,0 +1,85 @@
+---
+    title: Overview
+    description: Overview of the ONDC Transaction Flow
+---
+
+<br />
+
+
+
+# Layers of ONDC Network
+
+![Transaction Flow](/images/ondc/becknNetwork.png)
+
+
+ONDC is built on top of the Beckn Protocol (Base Layer), additionally there exists a a Network Layer for plicies & disputes
+
+> This doc focuses on the Transaction Flow in the Beckn Protocol (Base Layer)
+
+
+
+## Beckn (Base Layer)
+
+### Components
+
+The Beckn Layer is the main layer that handles transactions, and it can
+be classified into these components:
+
+![Beckn Components](/images/ondc/becknItems.png)
+
+
+### Transaction Flow
+
+![Beckn Flow](/images/ondc/becknFlow.png)
+
+
+<br /> <br /> <br />
+
+# ONDC Beckn API Endpoints
+
+This document provides an overview of the ONDC Beckn API endpoints and their classification.
+
+
+
+
+
+<Tip>
+  Initial endpoint (/search) is triggered by BAP -> BG -> BPP (Buyer to Sellers via Gateway)
+</Tip>
+
+<Tip>
+  While the next APIs (/select, /init, /confirm, ..) occurs between the BAP & BPP (Buyer & Sellers Directly)
+</Tip>
+
+
+## Initial Endpoints
+
+These endpoints are used to initiate requests via HTTP calls:
+
+- `/search`
+- `/select`
+- `/init`
+- `/confirm`
+
+
+## Callback Endpoints
+
+These endpoints handle responses to the initial requests on WebHooks:
+
+- `/on_search`
+- `/on_select`
+- `/on_init`
+- `/on_confirm`
+
+
+
+
+
+<CardGroup cols={2}>
+    <Card title="Pre Order Transactions" icon="cart-shopping" href="/ondc/transaction_flow/pre_order">
+       Learn ONDC API flow from initiation to confirmation of Order
+    </Card>
+    <Card title="Post Order Transactions" icon="truck" href="/ondc/transaction_flow/post_order">
+       Learn ONDC API flow after confirmation of Order i.e: Delivery Process & Updates
+    </Card>
+</CardGroup>

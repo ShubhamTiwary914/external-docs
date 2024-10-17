@@ -1,0 +1,58 @@
+---
+title: "On Search API"
+api: "POST /on_search"
+description: "This endpoint is called by the BPP to respond to a search request from a BAP."
+---
+
+### Request Body
+
+<ParamField body="context" type="object" required>
+  Describes the context of the on_search response.
+  <Expandable title="context object">
+    <ParamField body="domain" type="string" required>
+      The domain of the transaction (e.g., "nic2004:52110").
+    </ParamField>
+    <ParamField body="country" type="string" required>
+      The country code (e.g., "IND").
+    </ParamField>
+    <ParamField body="city" type="string" required>
+      The city code (e.g., "std:080").
+    </ParamField>
+    <ParamField body="action" type="string" required>
+      The action being performed (should be "on_search").
+    </ParamField>
+    <ParamField body="core_version" type="string" required>
+      The version of the ONDC core API being used (e.g., "1.2.0").
+    </ParamField>
+    <ParamField body="bap_id" type="string" required>
+      The unique identifier for the Buyer App Platform (BAP).
+    </ParamField>
+    <ParamField body="bap_uri" type="string" required>
+      The URI of the Buyer App Platform.
+    </ParamField>
+    <ParamField body="bpp_id" type="string" required>
+      The unique identifier for the Beckn Provider Platform (BPP).
+    </ParamField>
+    <ParamField body="bpp_uri" type="string" required>
+      The URI of the Beckn Provider Platform.
+    </ParamField>
+    <ParamField body="transaction_id" type="string" required>
+      A unique identifier for this transaction.
+    </ParamField>
+    <ParamField body="message_id" type="string" required>
+      A unique identifier for this message.
+    </ParamField>
+    <ParamField body="timestamp" type="string" required>
+      The timestamp of the request in ISO 8601 format.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="message" type="object" required>
+  Contains the search results.
+  <Expandable title="message object">
+    <ParamField body="catalog" type="object" required>
+      The catalog of items matching the search criteria.
+    </ParamField>
+  </Expandable>
+</ParamField>

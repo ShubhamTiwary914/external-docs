@@ -1,0 +1,44 @@
+---
+title: 'Staging'
+description: 'ONDC Staging Environment'
+---
+
+
+- The ONDC staging environment is designed for development and testing purposes. 
+This environment allows you to interact with and test the ONDC APIs without affecting the pre-production or production systems.
+
+
+
+## Using the Staging APIs
+
+In the staging environment, you can:
+
+1. Test your integration with ONDC APIs
+2. Simulate various scenarios and edge cases
+3. Debug your application's interaction with the ONDC network
+4. Validate your implementation against ONDC specifications
+
+
+
+## API Endpoints
+
+The base URL for the staging environment APIs is:
+
+
+### Buyer APIs
+
+| API | Description | Documentation |
+|-----|-------------|---------------|
+| Search | Allows buyers to search for products or services in the ONDC network | [Search](/ondc/retailv1.2/buyer/search) |
+| Select | Enables buyers to select items from a provider's catalog | [Select](/ondc/retailv1.2/buyer/select) |
+| Init | Initializes the order and requests payment details | [Init](/ondc/retailv1.2/buyer/init) |
+| Confirm | Confirms the order after successful payment | [Confirm](/ondc/retailv1.2/buyer/confirm) |
+
+### Seller APIs
+
+| API | Description | Documentation |
+|-----|-------------|---------------|
+| On Search | Responds to a search request from a BAP with catalog items | [On Search](/ondc/retailv1.2/seller/on_search) |
+| On Select | Responds to a select request from a BAP with selected item details | [On Select](/ondc/retailv1.2/seller/on_select) |
+| On Init | Responds to an init request from a BAP with initialized order details | [On Init](/ondc/retailv1.2/seller/on_init) |
+| On Confirm | Responds to a confirm request from a BAP with confirmed order details | [On Confirm](/ondc/retailv1.2/seller/on_confirm) |

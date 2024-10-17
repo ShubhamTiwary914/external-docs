@@ -1,14 +1,18 @@
 {
-    "name": "Mintlify",
+    "name": "AdNet Partners Docs",
     "logo": {
-      "light": "/logo/light.svg",
-      "dark": "/logo/dark.svg"
+      "light": "/logo/adnet.png",
+      "dark": "/logo/adnet.png"
     },
     "favicon": "/favicon.svg",
     "colors": {
-      "primary": "#16A34A",
-      "light": "#4ADE80",
-      "dark": "#166534"
+      "primary": "#078dee",
+      "light": "#078dee",
+      "dark": "#078dee",
+      "anchors": {
+        "from": "#0D9373",
+        "to": "#07C983"
+      }
     },
     "topbarLinks": [
       {
@@ -22,30 +26,119 @@
     },
 
     "anchors": [
+     
+    ],
+
+    "tabs": [
       {
-        "name": "API Components",
-        "icon": "rectangle-terminal",
-        "color": "#f59f0b",
-        "url": "api-components"
+        "name": "Buyer Ads Partners",
+        "url": "buyers"
       },
       {
-        "name": "Community",
-        "icon": "comments",
-        "color": "#2564eb",
-        "url": "https://discord.gg/MPNgtSZkgK"
+        "name": "Seller Ads Partners",
+        "url": "sellers"
+      },
+      {
+        "name": "ONDC Protocol",
+        "url": "ondc"
       }
     ],
 
+
+
+  
+
+
     "navigation": [
+      
       {
-        "group": "Getting Started",
-        "pages": ["introduction", "quickstart"]
+        "group": "Buyer Ads Partners",
+        "pages": [
+          "buyers/introduction",
+          "buyers/onboarding",
+          "buyers/ads",
+          "buyers/payments"
+        ]
       },
+
       {
-        "group": "API Components",
-        "pages": ["/api-playground/overview", "/api-playground/configuration"]
+        "group": "Concepts",
+        "pages": [
+          "buyers/concepts/admetrics",
+          "buyers/concepts/usermetrics",
+          "buyers/concepts/auction"
+        ]
+      },
+
+
+      {
+        "group": "Seller Ads Partners",
+        "pages": [
+          "sellers/introduction"
+        ]
+      },
+
+
+      {
+        "group": "ONDC Protocol",
+        "pages": [
+          "ondc/introduction",
+          "ondc/components"
+        ]
+      },
+      
+      {
+        "group": "ONDC Transaction Flow",
+        "pages": [
+          "ondc/transaction_flow/overview",
+          "ondc/transaction_flow/pre_order",
+          "ondc/transaction_flow/post_order"
+        ]
+      },
+  
+      {
+        "group": "ONDC Onboarding",
+        "pages": [
+          "ondc/onboarding/overview",
+          "ondc/onboarding/signauth",
+          "ondc/onboarding/staging",
+          "ondc/onboarding/preprod"
+        ]
+      },
+
+
+      {
+        "group": "Retail V1.2.0 Docs",
+        "pages": [
+          {
+            "group": "Buyer APIs",
+            "pages": [
+              "ondc/retailv1.2/buyer/init",
+              "ondc/retailv1.2/buyer/search",
+              "ondc/retailv1.2/buyer/select",
+              "ondc/retailv1.2/buyer/confirm"
+            ]
+          },
+          {
+            "group": "Seller APIs",
+            "pages": [
+              "ondc/retailv1.2/seller/on_init",
+              "ondc/retailv1.2/seller/on_search",
+              "ondc/retailv1.2/seller/on_select",
+              "ondc/retailv1.2/seller/on_confirm"
+            ]
+          }
+        ]
       }
     ],
+
+
+
+
+
+
+
+
     "footerSocials": {
       "github": "https://github.com/mintlify",
       "slack": "https://mintlify.com/community",

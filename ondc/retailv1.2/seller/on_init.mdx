@@ -1,0 +1,131 @@
+---
+title: "On Init API"
+api: "POST /on_init"
+description: "This endpoint is called by the BPP to respond to an init request from a BAP."
+---
+
+### Request Body
+
+<ParamField body="context" type="object" required>
+  Describes the context of the on_init response.
+  <Expandable title="context object">
+    // Same as in on_search.mdx, with action as "on_init"
+  </Expandable>
+</ParamField>
+
+<ParamField body="message" type="object" required>
+  Contains the details of the initialized order.
+  <Expandable title="message object">
+    <ParamField body="order" type="object" required>
+      Details of the order being initialized.
+      <Expandable title="order object">
+        <ParamField body="provider" type="object" required>
+          Details of the provider.
+        </ParamField>
+        <ParamField body="items" type="array" required>
+          An array of selected items.
+        </ParamField>
+        <ParamField body="billing" type="object" required>
+          Billing details for the order.
+        </ParamField>
+        <ParamField body="fulfillment" type="object" required>
+          Fulfillment details for the order.
+        </ParamField>
+        <ParamField body="quote" type="object" required>
+          Quotation for the order.
+        </ParamField>
+        <ParamField body="payment" type="object" required>
+          Payment details for the order.
+        </ParamField>
+      </Expandable>
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+### Example Request
+
+```json
+{
+  "context": {
+    // Same as in on_search.mdx, with action as "on_init"
+  },
+  "message": {
+    "order": {
+      "provider": {
+        "id": "PROVIDER1",
+        "descriptor": {
+          "name": "Example Provider"
+        }
+      },
+      "items": [
+        {
+          "id": "ITEM1",
+          "quantity": {
+            "count": 2
+          },
+          "price": {
+            "currency": "INR",
+            "value": "100.00"
+          }
+        }
+      ],
+      "billing": {
+        "name": "John Doe",
+        "address": {
+          "door": "123",
+          "name": "Main Street",
+          "locality": "Downtown",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "country": "India",
+          "area_code": "560001"
+        },
+        "phone": "9876543210"
+      },
+      "fulfillment": {
+        "type": "Delivery",
+        "end": {
+          "location": {
+            "gps": "12.9715987,77.5945627",
+            "address": {
+              "door": "123",
+              "name": "Main Street",
+              "locality": "Downtown",
+              "city": "Bangalore",
+              "state": "Karnataka",
+              "country": "India",
+              "area_code": "560001"
+            }
+          }
+        }
+      },
+      "quote": {
+        "price": {
+          "currency": "INR",
+          "value": "220.00"
+        },
+        "breakup": [
+          {
+            "title": "Item cost",
+            "price": {
+              "currency": "INR",
+              "value": "200.00"
+            }
+          },
+          {
+            "title": "Delivery charge",
+            "price": {
+              "currency": "INR",
+              "value": "20.00"
+            }
+          }
+        ]
+      },
+      "payment": {
+        "uri": "https://api.example-payment.com/pay",
+        "tl_method": "http/get"
+      }
+    }
+  }
+}
+```

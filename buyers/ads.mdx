@@ -1,0 +1,103 @@
+---
+title: Ad Integration
+description: How to integrate ads into your Buyer App
+---
+
+
+
+Before diving into the integration process, it's helpful to understand some key concepts about how our ad system works:
+
+<CardGroup cols={3}>
+  <Card title="Ad Metrics" icon="chart-line" href="/buyers/concepts/admetrics">
+    Learn about the metrics used to measure ad performance
+  </Card>
+  <Card title="User Metrics" icon="users" href="/buyers/concepts/usermetrics">
+    Understand how user behavior is tracked and analyzed
+  </Card>
+  <Card title="Ad Auction" icon="gavel" href="/buyers/concepts/auction">
+    Discover how our ad auction system determines which ads to display
+  </Card>
+</CardGroup>
+
+
+
+
+## 1. Access the Ads Page
+
+To begin integrating ads into your Buyer App, navigate to the Ads page in your AdNet dashboard.
+
+<img src="/images/buyers/ads-1.png" alt="Ads Dashboard" />
+
+## 2. Ad Creation
+
+When creating an ad, you'll need to provide several details as shown in the image below:
+
+<img src="/images/buyers/ads-2.png" alt="Ad Creation Form" />
+
+These details are crucial for our ad auction system. Behind the scenes, we use this information to determine which ads should be displayed to users based on relevance and bidding. The auction process ensures that the most appropriate and highest-bidding ads are shown to users, maximizing value for both advertisers and your app users.
+
+## 3. Integration Steps
+
+Once you've set up your ad campaigns, follow these steps to integrate ads into your Buyer App:
+
+<img src="/images/buyers/ads-3.png" alt="Ad Integration Steps" />
+
+### Step 1: Attach Script
+
+Add the following script to the end of the `<body>` tag in your main `index.html` file. This script initializes the ad client on your page.
+
+<CodeGroup>
+
+```html index.html
+<script src="http://localhost:8080/ad.js?bap_id=6e0908hxu48y8m"></script>
+```
+
+
+</CodeGroup>
+
+
+
+### Step 2: Fetch Ads
+
+Call the `ad.fetch()` method to retrieve ads based on the specified parameters:
+
+<CodeGroup>
+
+
+
+``` javascript 
+ad.fetch({
+    unit: string,
+    type: string,
+    city: string,
+    state: string,
+    keywords: string,
+    floorBid: number,
+    slots: number
+});
+```
+
+
+</CodeGroup>
+
+### Step 3: Handle Ad Clicks
+
+Implement a click handler for ads within your Buyer App:
+
+<CodeGroup>
+
+
+``` javascript 
+    ad.select({
+    bpp: string,
+    provider: string,
+    item: string,
+    quantity: number,
+    location: gps
+});
+```
+
+</CodeGroup>
+
+
+

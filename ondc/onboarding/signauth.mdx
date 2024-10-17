@@ -1,0 +1,122 @@
+---
+title: 'Signing and Authentication'
+description: 'Instructions for signing payload and authentication'
+---
+
+
+- ONDC API (except for registry lookup APIs), requires signing the payload using the private key of the sender.
+- This private key is received during the onboarding process.
+- The public key is present on the ONDC registry network & used to verify the signature.
+
+
+<br />
+
+## Setup
+
+1. Clone the ONDC reference implementation repository:
+
+``` bash
+git clone https://github.com/ONDC-Official/reference-implementations.git
+cd reference-implementations/utilities/signing_and_verification/python
+```
+
+
+
+
+2. Install pip3 and dependencies:
+
+
+``` bash
+sudo apt update
+sudo apt install python3-pip
+pip3 install -r requirements.txt
+```
+
+
+3. Export the request body JSON path:
+``` bash
+export REQUEST_BODY_PATH=<path_to_your_request_body.json>
+```
+
+<br/>
+
+
+## Generate Key Pairs
+
+Generate the required key pairs:
+
+``` bash
+python cryptic_utils.py generate_key_pairs
+```
+
+
+
+This will output the signing and encryption keys. Export them as environment variables:
+``` bash
+export PRIVATE_KEY=<Signing_private_key>
+export PUBLIC_KEY=<Signing_public_key>
+export ENCRYPTION_PRIVATE_KEY=<Encryption_Privatekey>
+export ENCRYPTION_PUBLIC_KEY=<Encryption_Publickey>
+```
+
+
+<br />
+
+## Create Authorization Header
+
+Generate the authorization header:
+
+``` bash
+python cryptic_utils.py create_authorisation_header
+```
+
+This will output an `auth_header` string.
+
+
+<br />
+
+## Verify Authorization Header
+
+To verify the authorization header:
+
+``` bash
+python cryptic_utils.py verify_authorisation_header '<auth_header>'
+```
+
+Replace `<auth_header>` with the actual authorization header string.
+
+
+<br />
+
+## Encrypt Payload
+
+To encrypt a payload:
+
+``` bash
+python cryptic_utils.py encrypt "<PrivateKey>" "<PublicKey>"
+```
+
+
+
+Replace `<PrivateKey>` and `<PublicKey>` with the actual keys.
+
+## Decrypt Payload
+
+To decrypt an encrypted payload:
+
+``` bash
+python cryptic_utils.py decrypt "<PrivateKey>" "<PublicKey>" "<EncryptedString>"
+```
+
+
+
+
+Replace `<PrivateKey>`, `<PublicKey>`, and `<EncryptedString>` with the actual values.
+
+## Important Notes
+
+1. Always keep your private keys secure and never share them.
+2. The `REQUEST_BODY_PATH` should point to a valid JSON file containing the request body.
+3. Make sure to use the correct key pairs for signing and encryption operations.
+4. The authorization header is crucial for authenticating your requests in the ONDC network.
+

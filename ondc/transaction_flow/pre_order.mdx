@@ -1,0 +1,130 @@
+---
+title: "Pre-Order Process"
+description: "Customer to Retail Platform (Order Confirmation)"
+---
+
+# Pre-Order Process in ONDC
+
+This document outlines the pre-order process in the Open Network for Digital Commerce (ONDC) ecosystem, detailing the interaction between the customer, Buyer App Platform (BAP), and Beckn Provider Platforms (BPPs).
+
+<Tabs>
+  <Tab title="1. Product Search">
+    ![Search](/images/ondc/api/search.png)
+
+    <Steps>
+      <Step title="Customer Initiates Search">
+        - Customer uses a Beckn-enabled Buyer App to search for a product.
+        - The search query is entered and looked up on the ONDC Registry.
+      </Step>
+      <Step title="Search Request Broadcast">
+        - BAP sends a search request via the `/search` endpoint.
+        - The Gateway broadcasts this request to all relevant BPPs.
+      </Step>
+      <Step title="BPPs Respond">
+        - BPPs respond with catalogs of items matching the search query.
+        - Responses are sent back to the BAP via the Gateway using the `/on_search` callback endpoint.
+      </Step>
+    </Steps>
+
+    <CardGroup cols={2}>
+      <Card title="Search API" icon="magnifying-glass" href="/ondc/retailv1.2/buyer/search">
+        Initiate a search request
+      </Card>
+      <Card title="On Search API" icon="reply" href="/ondc/retailv1.2/seller/on_search">
+        Respond to a search request
+      </Card>
+    </CardGroup>
+  </Tab>
+
+  <Tab title="2. Item Selection">
+    ![Select](/images/ondc/api/select.png)
+
+    <Steps>
+      <Step title="Customer Selects Items">
+        - Customer chooses items and quantities from the search results.
+      </Step>
+      <Step title="Selection Broadcast">
+        - BAP triggers the `/select` endpoint.
+        - The Gateway broadcasts the selection to relevant BPPs.
+      </Step>
+      <Step title="BPPs Provide Quotes">
+        - BPPs respond with quotes for the selected items.
+        - Quotes are sent back to the BAP via the `/on_select` callback.
+      </Step>
+      <Step title="Cart Generation">
+        - A cart is generated containing all fetched quotes.
+        - The transaction process can now begin.
+      </Step>
+    </Steps>
+
+    <CardGroup cols={2}>
+      <Card title="Select API" icon="hand-pointer" href="/ondc/retailv1.2/buyer/select">
+        Select items and request quotes
+      </Card>
+      <Card title="On Select API" icon="reply" href="/ondc/retailv1.2/seller/on_select">
+        Respond with quotes for selected items
+      </Card>
+    </CardGroup>
+  </Tab>
+
+  <Tab title="3. Order Initialization">
+    ![Init](/images/ondc/api/init.png)
+
+    <Steps>
+      <Step title="Customer Proceeds to Payment">
+        - Customer decides to proceed with the purchase and provides delivery address.
+      </Step>
+      <Step title="Request for Payment Policies">
+        - BAP requests payment policies from all involved BPPs via the `/init` route.
+      </Step>
+      <Step title="Policies Compilation">
+        - BPPs provide their ordering and delivery policies.
+        - The Gateway compiles these policies and returns them to the BAP.
+      </Step>
+      <Step title="Final Quote Reception">
+        - BAP receives the final quote and order methods via the `/on_init` callback.
+        - The payment process can now begin.
+      </Step>
+    </Steps>
+
+    <CardGroup cols={2}>
+      <Card title="Init API" icon="play" href="/ondc/retailv1.2/buyer/init">
+        Initialize the order process
+      </Card>
+      <Card title="On Init API" icon="reply" href="/ondc/retailv1.2/seller/on_init">
+        Respond with payment policies and final quote
+      </Card>
+    </CardGroup>
+  </Tab>
+
+  <Tab title="4. Order Confirmation">
+    ![Confirm](/images/ondc/api/confirm.png)
+
+    <Steps>
+      <Step title="Customer Completes Purchase">
+        - Customer makes the purchase.
+      </Step>
+      <Step title="Confirmation Broadcast">
+        - BAP sends a confirmation request via the `/confirm` endpoint.
+        - The Gateway broadcasts this to all involved BPPs.
+      </Step>
+      <Step title="BPP Validation">
+        - Each BPP validates the confirmation and initiates the order.
+        - BPPs generate unique Order IDs for the purchases.
+      </Step>
+      <Step title="Order Completion">
+        - BAP receives validation from each BPP via the `/on_confirm` callback.
+        - Customer is notified that their order is completed.
+      </Step>
+    </Steps>
+
+    <CardGroup cols={2}>
+      <Card title="Confirm API" icon="check" href="/ondc/retailv1.2/buyer/confirm">
+        Confirm the order
+      </Card>
+      <Card title="On Confirm API" icon="reply" href="/ondc/retailv1.2/seller/on_confirm">
+        Validate and process the confirmed order
+      </Card>
+    </CardGroup>
+  </Tab>
+</Tabs>

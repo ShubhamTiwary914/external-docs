@@ -1,0 +1,56 @@
+---
+title: "Confirm API"
+api: "POST /confirm"
+description: "This endpoint confirms the order after successful payment."
+---
+
+### Request Body
+
+<ParamField body="context" type="object" required>
+  Describes the context of the confirm request.
+  <Expandable title="context object">
+    // Same as in select.mdx and init.mdx, with action as "confirm"
+  </Expandable>
+</ParamField>
+
+<ParamField body="message" type="object" required>
+  Contains the details of the order to be confirmed.
+  <Expandable title="message object">
+    <ParamField body="order" type="object" required>
+      Details of the order being confirmed.
+      <Expandable title="order object">
+        <ParamField body="items" type="array" required>
+          An array of ordered items.
+        </ParamField>
+        <ParamField body="billing" type="object" required>
+          Billing details for the order.
+        </ParamField>
+        <ParamField body="fulfillment" type="object" required>
+          Fulfillment details for the order.
+        </ParamField>
+        <ParamField body="payment" type="object" required>
+          Payment details for the order.
+          <Expandable title="payment object">
+            <ParamField body="uri" type="string" required>
+              URI for the payment gateway.
+            </ParamField>
+            <ParamField body="tl_method" type="string" required>
+              Transfer layer method for payment.
+            </ParamField>
+            <ParamField body="params" type="object" required>
+              Payment parameters.
+            </ParamField>
+            <ParamField body="status" type="string" required>
+              Status of the payment.
+            </ParamField>
+            <ParamField body="type" type="string" required>
+              Type of payment.
+            </ParamField>
+          </Expandable>
+        </ParamField>
+      </Expandable>
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+### Example Request

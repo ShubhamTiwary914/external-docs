@@ -1,0 +1,50 @@
+---
+title: 'Components'
+description: 'Components in ONDC Beckn Based Backend Architecture'
+---
+
+This document provides an overview of the ONDC Beckn Based Backend Architecture, highlighting the key components and their roles within the network. Adjust the figures and descriptions as needed to fit your actual setup.
+
+<br/> 
+
+# Key Components
+
+### Beckn Application Platforms / BAPs (Buyer Apps)
+
+![Buyer Apps](/images/ondc/bap.png)
+
+- **Functionality**: These applications connect to the ONDC Network to fetch data and purchase items from the customer side to the seller side. They enable interaction between customers and merchants on the Beckn Provider Platform via the Beckn gateway.
+- **Interoperability**: BAPs can also interact with other Buyer Apps on the ONDC Network.
+- **Services**: Include Retail, Logistics, Agricultural, and Mobility Buyer Apps.
+
+**Figure**: Buyer App (retail) Interaction with Seller Apps
+
+<br/> <br/>
+
+
+
+
+### Beckn Provider Platforms / BPPs (Seller Apps)
+
+![Seller Apps](/images/ondc/bpp.png)
+
+- **Functionality**: These applications connect to the ONDC Network to provide items/providers data and services from merchants to customers. They facilitate interaction between merchants and customers on Beckn Application Platforms via the Beckn Gateway.
+- **Services**: May include retail, logistics, etc.
+
+**Figure**: Seller App (retail) Interaction with Buyer Apps (BAPs)
+
+**Figure**: Seller App (logistics) Interaction on the ONDC Network
+
+<br/> <br/>
+
+
+
+
+### Beckn Gateway, Registry & Logistics Partner
+
+![Beckn Gateway](/images/ondc/bg.png)
+
+- **Beckn Gateway**: Acts as the central repository where Buyer Applications interact and broadcast requests to/from Seller Applications.
+- **Registry**: A centralized database or directory that stores essential information about various entities participating in the ONDC Network, including sellers, buyers, service providers, products, and other relevant stakeholders.
+- **Logistics Partners**: Entities responsible for providing transportation, warehousing, and delivery services to facilitate the movement of goods between sellers and buyers.
+

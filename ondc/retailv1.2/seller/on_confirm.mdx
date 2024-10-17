@@ -1,0 +1,51 @@
+---
+title: "On Confirm API"
+api: "POST /on_confirm"
+description: "This endpoint is called by the BPP to respond to a confirm request from a BAP."
+---
+
+### Request Body
+
+<ParamField body="context" type="object" required>
+  Describes the context of the on_confirm response.
+  <Expandable title="context object">
+    // Same as in on_search.mdx, with action as "on_confirm"
+  </Expandable>
+</ParamField>
+
+<ParamField body="message" type="object" required>
+  Contains the details of the confirmed order.
+  <Expandable title="message object">
+    <ParamField body="order" type="object" required>
+      Details of the confirmed order.
+      <Expandable title="order object">
+        <ParamField body="id" type="string" required>
+          Unique identifier for the order.
+        </ParamField>
+        <ParamField body="state" type="string" required>
+          Current state of the order.
+        </ParamField>
+        <ParamField body="provider" type="object" required>
+          Details of the provider.
+        </ParamField>
+        <ParamField body="items" type="array" required>
+          An array of ordered items.
+        </ParamField>
+        <ParamField body="billing" type="object" required>
+          Billing details for the order.
+        </ParamField>
+        <ParamField body="fulfillment" type="object" required>
+          Fulfillment details for the order.
+        </ParamField>
+        <ParamField body="quote" type="object" required>
+          Final quotation for the order.
+        </ParamField>
+        <ParamField body="payment" type="object" required>
+          Payment details for the order.
+        </ParamField>
+      </Expandable>
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+### Example Request

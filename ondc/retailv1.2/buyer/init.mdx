@@ -1,0 +1,65 @@
+---
+title: "Init API"
+api: "POST /init"
+description: "This endpoint initializes the order and requests payment details."
+---
+
+### Request Body
+
+<ParamField body="context" type="object" required>
+  Describes the context of the init request.
+  <Expandable title="context object">
+    // Same as in select.mdx, with action as "init"
+  </Expandable>
+</ParamField>
+
+<ParamField body="message" type="object" required>
+  Contains the details of the order to be initialized.
+  <Expandable title="message object">
+    <ParamField body="order" type="object" required>
+      Details of the order being initialized.
+      <Expandable title="order object">
+        <ParamField body="items" type="array" required>
+          An array of selected items.
+          <Expandable title="items array">
+            <ParamField body="id" type="string" required>
+              The unique identifier of the item.
+            </ParamField>
+            <ParamField body="quantity" type="object" required>
+              <ParamField body="count" type="integer" required>
+                The quantity of the item.
+              </ParamField>
+            </ParamField>
+          </Expandable>
+        </ParamField>
+        <ParamField body="billing" type="object" required>
+          Billing details for the order.
+          <Expandable title="billing object">
+            <ParamField body="name" type="string" required>
+              Name of the billing entity.
+            </ParamField>
+            <ParamField body="address" type="object" required>
+              Address details.
+            </ParamField>
+            <ParamField body="phone" type="string" required>
+              Contact phone number.
+            </ParamField>
+          </Expandable>
+        </ParamField>
+        <ParamField body="fulfillment" type="object" required>
+          Fulfillment details for the order.
+          <Expandable title="fulfillment object">
+            <ParamField body="type" type="string" required>
+              Type of fulfillment (e.g., "Delivery").
+            </ParamField>
+            <ParamField body="end" type="object" required>
+              Delivery location details.
+            </ParamField>
+          </Expandable>
+        </ParamField>
+      </Expandable>
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+### Example Request

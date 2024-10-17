@@ -1,0 +1,63 @@
+---
+title: Ad Auction
+description: Understanding how ad auctions work in simple terms
+---
+
+# How Ad Auctions Work
+
+Ad auctions are like a behind-the-scenes competition that happens in a split second every time an ad space is available. <br />
+ It's how we decide which ads to show to users, ensuring that both advertisers and users get the best possible experience.
+
+<br />
+
+<Tip>
+  Want to dive deeper into the metrics we use? <br /> 
+  Check out our [Ad Metrics guide](/buyers/concepts/admetrics) for an in-depth understanding of the key performance indicators (KPIs) in ad auctions.
+</Tip>
+
+
+
+<br /> <br />
+
+
+
+## How It Works: A Simple Example
+
+Let's break down the ad auction process with a straightforward example:
+
+1. **The Players**: Meet Sam, Mary, Jane, and Pat. They're all advertisers who want their ads to appear when someone searches for "pet adoption".
+
+2. **Quality Score**: We give each ad a quality score based on how relevant and useful we think it will be to users. This score is like a star rating:
+   - Sam's ad: ⭐⭐⭐⭐⭐ (10 stars)
+   - Mary's ad: ⭐⭐ (4 stars)
+   - Jane's ad: ⭐ (1 star)
+   - Pat's ad: ⭐ (2 stars)
+
+3. **Max Bid**: Each advertiser sets the maximum amount they're willing to pay for a click on their ad:
+   - Sam: $2
+   - Mary: $4
+   - Jane: $8
+   - Pat: $6
+
+4. **Ad Rank**: We calculate an "Ad Rank" by multiplying the quality score by the max bid:
+   - Sam: 10 × $2 = 20
+   - Mary: 4 × $4 = 16
+   - Jane: 1 × $8 = 8
+   - Pat: 2 × $6 = 12
+
+5. **The Results**: The ads with the highest Ad Rank scores win the auction and get to show their ads. In this case, Sam, Mary, and Pat's ads would be displayed, while Jane's ad wouldn't make the cut.
+
+## Why This Matters
+
+This auction system ensures that:
+- Users see high-quality, relevant ads
+- Advertisers with great ads can win prominent spots without always having to bid the highest amount
+- There's a fair playing field for all advertisers, big and small
+
+By balancing quality and bid amount, we create a win-win situation where users find helpful ads, and advertisers get better value for their investment.
+
+<br /> <br />
+
+<Note>
+    Remember, ad auctions happen in real-time, every time there's an opportunity to show an ad. It's a dynamic process that helps match the right ads with the right users at the right time.
+</Note>

@@ -1,0 +1,87 @@
+---
+title: "Search API"
+api: "POST /search"
+description: "This endpoint allows buyers to search for products or services in the ONDC network."
+---
+
+### Request Body
+
+<ParamField body="context" type="object" required>
+  Describes the context of the search request.
+  <Expandable title="context object">
+    <ParamField body="domain" type="string" required>
+      The domain of the search (e.g., "nic2004:52110").
+    </ParamField>
+    <ParamField body="country" type="string" required>
+      The country code (e.g., "IND").
+    </ParamField>
+    <ParamField body="city" type="string" required>
+      The city code (e.g., "std:080").
+    </ParamField>
+    <ParamField body="action" type="string" required>
+      The action being performed (should be "search").
+    </ParamField>
+    <ParamField body="core_version" type="string" required>
+      The version of the ONDC core API being used (e.g., "1.2.0").
+    </ParamField>
+    <ParamField body="bap_id" type="string" required>
+      The unique identifier for the Buyer App Platform (BAP).
+    </ParamField>
+    <ParamField body="bap_uri" type="string" required>
+      The URI of the Buyer App Platform.
+    </ParamField>
+    <ParamField body="transaction_id" type="string" required>
+      A unique identifier for this transaction.
+    </ParamField>
+    <ParamField body="message_id" type="string" required>
+      A unique identifier for this message.
+    </ParamField>
+    <ParamField body="timestamp" type="string" required>
+      The timestamp of the request in ISO 8601 format.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="message" type="object" required>
+  Contains the actual search parameters.
+  <Expandable title="message object">
+    <ParamField body="intent" type="object" required>
+      Describes the search intent.
+      <Expandable title="intent object">
+        <ParamField body="item" type="object">
+          Details about the item being searched for.
+          <Expandable title="item object">
+            <ParamField body="descriptor" type="object">
+              <ParamField body="name" type="string">
+                The name of the item to search for.
+              </ParamField>
+            </ParamField>
+          </Expandable>
+        </ParamField>
+        <ParamField body="fulfillment" type="object">
+          Fulfillment preferences.
+          <Expandable title="fulfillment object">
+            <ParamField body="type" type="string">
+              The type of fulfillment (e.g., "Delivery" or "Self-Pickup").
+            </ParamField>
+          </Expandable>
+        </ParamField>
+        <ParamField body="payment" type="object">
+          Payment preferences.
+          <Expandable title="payment object">
+            <ParamField body="@ondc/org/buyer_app_finder_fee_type" type="string">
+              The type of finder fee (e.g., "Percent" or "Fixed").
+            </ParamField>
+            <ParamField body="@ondc/org/buyer_app_finder_fee_amount" type="string">
+              The amount of the finder fee.
+            </ParamField>
+          </Expandable>
+        </ParamField>
+      </Expandable>
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+### Response
+
+The response will contain a list of catalog items matching the search criteria, along with provider information and other relevant details.

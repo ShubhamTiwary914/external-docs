@@ -1,0 +1,91 @@
+---
+title: "Select API"
+api: "POST /select"
+description: "This endpoint allows buyers to select items from a provider's catalog."
+---
+
+### Request Body
+
+<ParamField body="context" type="object" required>
+  Describes the context of the select request.
+  <Expandable title="context object">
+    <ParamField body="domain" type="string" required>
+      The domain of the transaction (e.g., "nic2004:52110").
+    </ParamField>
+    <ParamField body="country" type="string" required>
+      The country code (e.g., "IND").
+    </ParamField>
+    <ParamField body="city" type="string" required>
+      The city code (e.g., "std:080").
+    </ParamField>
+    <ParamField body="action" type="string" required>
+      The action being performed (should be "select").
+    </ParamField>
+    <ParamField body="core_version" type="string" required>
+      The version of the ONDC core API being used (e.g., "1.1.0").
+    </ParamField>
+    <ParamField body="bap_id" type="string" required>
+      The unique identifier for the Buyer App Platform (BAP).
+    </ParamField>
+    <ParamField body="bap_uri" type="string" required>
+      The URI of the Buyer App Platform.
+    </ParamField>
+    <ParamField body="bpp_id" type="string" required>
+      The unique identifier for the Beckn Provider Platform (BPP).
+    </ParamField>
+    <ParamField body="bpp_uri" type="string" required>
+      The URI of the Beckn Provider Platform.
+    </ParamField>
+    <ParamField body="transaction_id" type="string" required>
+      A unique identifier for this transaction.
+    </ParamField>
+    <ParamField body="message_id" type="string" required>
+      A unique identifier for this message.
+    </ParamField>
+    <ParamField body="timestamp" type="string" required>
+      The timestamp of the request in ISO 8601 format.
+    </ParamField>
+    <ParamField body="ttl" type="string" required>
+      Time to live for the request in ISO 8601 duration format.
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+<ParamField body="message" type="object" required>
+  Contains the details of the selected items.
+  <Expandable title="message object">
+    <ParamField body="order" type="object" required>
+      Details of the order being created.
+      <Expandable title="order object">
+        <ParamField body="items" type="array" required>
+          An array of selected items.
+          <Expandable title="items array">
+            <ParamField body="id" type="string" required>
+              The unique identifier of the selected item.
+            </ParamField>
+            <ParamField body="quantity" type="object" required>
+              <ParamField body="count" type="integer" required>
+                The quantity of the selected item.
+              </ParamField>
+            </ParamField>
+          </Expandable>
+        </ParamField>
+        <ParamField body="provider" type="object" required>
+          Details of the provider.
+          <Expandable title="provider object">
+            <ParamField body="id" type="string" required>
+              The unique identifier of the provider.
+            </ParamField>
+            <ParamField body="locations" type="array" required>
+              <ParamField body="id" type="string" required>
+                The unique identifier of the provider's location.
+              </ParamField>
+            </ParamField>
+          </Expandable>
+        </ParamField>
+      </Expandable>
+    </ParamField>
+  </Expandable>
+</ParamField>
+
+### Example Request
